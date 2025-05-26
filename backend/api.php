@@ -1,14 +1,21 @@
 <?php
-header("Content-Type: application/json; charset=utf-8");
+// 在文件最开头添加
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json; charset=utf-8");
+
+// 处理预检请求
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
 
 // Windows专用配置
 $config = [
-    'recordings_dir' => 'E:\\Laragon\\laragon\\www\\live-room\\temp',
-    'pid_file' => 'E:\\Laragon\\laragon\\www\\live-room\\live_recording.pid',
+    'recordings_dir' => 'C:\\Users\\zsh\\Desktop\\live_room\\backend\\temp',
+    'pid_file' => 'C:\\Users\\zsh\\Desktop\\live_room\\backend\\live_recording.pid',
     'ffmpeg_path' => 'E:\\ffmpeg\\bin\\ffmpeg.exe',
-    'log_file' => 'E:\\Laragon\\laragon\\www\\live-room\\logs\\recording.log'
+    'log_file' => 'C:\\Users\\zsh\\Desktop\\live_room\\backend\\logs\\recording.log'
 ];
 
 // 创建录播目录
