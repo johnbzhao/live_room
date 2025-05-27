@@ -28,9 +28,13 @@ docker run -d \
   -p 8080:8080 \
   -p 1985:1985 \
   ossrs/srs:4
-npm install 
+
 # 下载Laragon，并且将backend的内容放到laragon/www/live-room/中
 # 将frontend的内容下载下来
+
+cd frontend
+npm install
+
 修改VideoPlayer.vue中的onMounted中的src，按照ip进行修改（ipconfig获取ip）
 修改App.vue中的connectWebSocket的ws，按照ip进行修改
 修改api.php中的config的路径信息
